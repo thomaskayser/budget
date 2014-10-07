@@ -1,0 +1,19 @@
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+
+  <persistence-unit name="budgetPU" transaction-type="JTA">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+    <jta-data-source>jdbc/budget</jta-data-source>
+    
+    <class>ch.tkayser.budget.domain.Account</class>
+    <class>ch.tkayser.budget.domain.Transaction</class>
+    <properties>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+    </properties> 
+
+  </persistence-unit>
+  
+
+</persistence>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-application-client PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Application Client 6.0//EN" "http://glassfish.org/dtds/glassfish-application-client_6_0-1.dtd">
+<glassfish-application-client>
+	<java-web-start-access>
+		<context-root>budget-swing</context-root>
+        <eligible>true</eligible>
+		<vendor>Thomas Kayser</vendor>
+		<jnlp-doc href="budgetInfo.jnlp" />
+	</java-web-start-access>
+</glassfish-application-client>
+

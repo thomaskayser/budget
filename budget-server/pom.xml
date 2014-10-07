@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <prerequisites>
+        <maven>2.0.7</maven>
+    </prerequisites>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ch.tkayser.budget</groupId>
+    <artifactId>budget-server</artifactId>
+    <version>2.0.1-SNAPSHOT</version>
+
+    <parent>
+        <groupId>ch.tkayser.budget</groupId>
+        <artifactId>budget-pom</artifactId>
+        <relativePath>../budget-pom</relativePath>
+        <version>2.0.1-SNAPSHOT</version>
+    </parent>
+
+    <name>budget-server</name>
+    <description>Budget Server</description>
+    <packaging>ejb</packaging>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar</goal>
+                            <goal>test-jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ejb-plugin</artifactId>
+                <configuration>
+                    <ejbVersion>3.0</ejbVersion>
+                    <generateClient>true</generateClient>
+                    <clientExcludes>
+                        <clientExclude>**/service/impl/**</clientExclude>
+                    </clientExcludes>
+                    <clientIncludes>
+                        <clientInclude>**/service/**</clientInclude>
+                        <clientInclude>**/dto/**</clientInclude>
+                        <clientInclude>**/exception/**</clientInclude>
+                        <clientInclude>**/parser/**</clientInclude>
+                        <clientInclude>**/parser/impl/**</clientInclude>
+                        <clientInclude>**/util/**</clientInclude>
+                        <clientInclude>glassfish_authorization.conf</clientInclude>
+                    </clientIncludes>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+
+
+
+
+        </plugins>
+    </build>
+
+
+    <dependencies>
+
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>antlr</groupId>
+            <artifactId>antlr</artifactId>
+        </dependency>
+
+
+        <!-- Validation -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+            
+        <!-- J2EE -->
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-ejb_3.0_spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jpa_3.0_spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jta_1.0.1B_spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-annotation_1.0_spec</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-interceptor_3.0_spec</artifactId>
+        </dependency>
+
+        <!--  Binding for dtos... -->
+        <dependency>
+            <groupId>com.jgoodies</groupId>
+            <artifactId>binding</artifactId>
+        </dependency>
+
+
+        <!-- DB -->
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+        </dependency>
+
+        <!-- Utilities -->
+        <dependency>
+            <groupId>net.sf.dozer</groupId>
+            <artifactId>dozer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.javacsv</groupId>
+            <artifactId>javacsv</artifactId>
+        </dependency>
+
+        <!-- Testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.openejb</groupId>
+            <artifactId>openejb-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+
+
+
+</project>

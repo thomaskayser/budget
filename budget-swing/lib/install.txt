@@ -1,0 +1,6 @@
+Look and feels.
+
+Installation in Maven dir:
+
+   mvn install:install-file -DgroupId=ch.tkayser.budget -DartifactId=lf -Dversion=1.0 -Dpackaging=jar -Dfile=D:\tmp\work\budget-swing\lib\lf.jar -DgeneratePom=true
+	

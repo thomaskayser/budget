@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <prerequisites>
+        <maven>2.0.7</maven>
+    </prerequisites>
+
+    <name>budget-pom</name>
+    <description>Budget Application</description>
+
+    <repositories>
+        <repository>
+            <id> glassfish </id>
+            <name>glassfish</name>
+            <layout>default</layout>
+            <url>http://maven.glassfish.org/content/groups/glassfish</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>JBoss</id>
+            <name>JBoss</name>
+            <layout>default</layout>
+            <url>http://repository.jboss.org</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
+    <modules>
+        <!-- Dies sind die Directories der Subprojekte (Nicht POM Artifact Name) -->
+        <module>../budget-ear</module>
+        <module>../budget-server</module>
+        <module>../budget-swing</module>
+
+        <!-- don't build client with maven... <module>budget-client</module> -->
+    </modules>
+
+    <groupId>ch.tkayser.budget</groupId>
+    <artifactId>budget</artifactId>
+    <version>2.0.1-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- Hibernate -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate-entitymanager.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-annotations</artifactId>
+                <version>${hibernate-annotations.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>antlr</groupId>
+                <artifactId>antlr</artifactId>
+                <version>${antlr.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+
+
+            <!-- Java EE 5 Dependencies (provided) -->
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-ejb_3.0_spec</artifactId>
+                <version>${geronimo-ejb_3.0_spec.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-jpa_3.0_spec</artifactId>
+                <version>${geronimo-jpa_3.0_spec.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-jta_1.0.1B_spec</artifactId>
+                <version>${geronimo-jta_1.0.1B_spec.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-annotation_1.0_spec</artifactId>
+                <version>${geronimo-annotation_1.0_spec.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-interceptor_3.0_spec</artifactId>
+                <version>${geronimo-interceptor_3.0_spec.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hsqldb</groupId>
+                <artifactId>hsqldb</artifactId>
+                <version>${hsqldb.version}</version>
+            </dependency>
+
+            <!-- Utilities -->
+            <dependency>
+                <groupId>net.sf.dozer</groupId>
+                <artifactId>dozer</artifactId>
+                <version>${dozer.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sourceforge.javacsv</groupId>
+                <artifactId>javacsv</artifactId>
+                <version>${csvreader.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+
+            <!-- SWING -->
+            <dependency>
+                <groupId>org.swinglabs</groupId>
+                <artifactId>swing-layout</artifactId>
+                <version>${swing-layout.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jdesktop.bsaf</groupId>
+                <artifactId>bsaf</artifactId>
+                <version>${bsaf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jgoodies</groupId>
+                <artifactId>binding</artifactId>
+                <version>${binding.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.swinglabs</groupId>
+                <artifactId>swingx-core</artifactId>
+                <version>${swingx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.swinglabs</groupId>
+                <artifactId>swingx-beaninfo</artifactId>
+                <version>${swingx.version}</version>
+            </dependency>
+
+            <!-- Look and feel -->
+            <dependency>
+                <groupId>ch.tkayser.budget</groupId>
+                <artifactId>lf</artifactId>
+                <version>${budget.lf.version}</version>
+            </dependency>
+
+
+            <!-- commons -->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+
+
+            <!-- Testing -->
+            <dependency>
+                <groupId>org.apache.openejb</groupId>
+                <artifactId>openejb-core</artifactId>
+                <version>${openejb.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
+
+
+
+
+        </dependencies>
+    </dependencyManagement>
+
+    <organization>
+        <name>Tom</name>
+        <url>http://tomradev.homedns.org</url>
+    </organization>
+
+
+
+    <build>
+
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-eclipse-plugin</artifactId>
+                    <version>${maven-eclipse-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>${maven-surefire-report-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>${maven.ear.plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven-resources-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven-release-plugin.version}</version>
+                    <configuration>
+                        <tagBase>https://svn.tomradev.homedns.org/repos/Tools/Budget/tags</tagBase>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*BaseTest.java</exclude>
+                    </excludes>
+                </configuration>
+
+
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                    <encoding>ISO-8859-1</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                    <wtpversion>2.0</wtpversion>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven-resources-plugin.version}</version>
+                <configuration>
+                    <encoding>ISO-8859-1</encoding>
+                </configuration>
+            </plugin>
+
+
+        </plugins>
+
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ftp</artifactId>
+                <version>${ftp-wagon.version}</version>
+            </extension>
+        </extensions>
+
+    </build>
+
+
+
+    <reporting>
+        <plugins>
+
+            <!-- Surefire Test reports -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${maven-surefire-report-plugin.version}</version>
+            </plugin>
+
+
+            <!-- Emma coverage -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>emma-maven-plugin</artifactId>
+                <version>${maven-emma-plugin.version}</version>
+                <inherited>true</inherited>
+
+            </plugin>
+
+
+        </plugins>
+    </reporting>
+
+
+    <scm>
+        <connection>scm:svn:https://svn.tomradev.homedns.org/repos/Tools/Budget/budget-2.0.0</connection>
+        <developerConnection>scm:svn:https://svn.tomradev.homedns.org/repos/Tools/Budget/tags/budget-2.0.0</developerConnection>
+        <url>https://svn.tomradev.homedns.org/repos/Tools/Budget/budget-2.0.0</url>
+    </scm>
+
+
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>tomra-ftp-repository</id>
+            <name>Toms Repository</name>
+            <url>ftp://tomradev.homedns.org</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+
+        <!-- general -->
+        <java.version>1.6</java.version>
+        <java.source.version>${java.version}</java.source.version>
+        <java.target.version>${java.version}</java.target.version>
+
+
+        <!-- Hibernate -->
+        <hibernate-entitymanager.version>3.4.0.GA</hibernate-entitymanager.version>
+        <hibernate-core.version>3.3.2.GA</hibernate-core.version>
+        <hibernate-annotations.version>3.4.0.GA</hibernate-annotations.version>
+        <antlr.version>2.7.6</antlr.version>
+        <hibernate-validator.version>4.1.0.Final</hibernate-validator.version>
+
+        <!-- Testing -->
+        <openejb.version>3.1.4</openejb.version>
+        <junit.version>4.4</junit.version>
+        <hsqldb.version>1.8.0.10</hsqldb.version>
+
+
+        <!-- J2EE -->
+        <geronimo-ejb_3.0_spec.version>1.0</geronimo-ejb_3.0_spec.version>
+        <geronimo-jpa_3.0_spec.version>1.1</geronimo-jpa_3.0_spec.version>
+        <geronimo-jta_1.0.1B_spec.version>1.1.1</geronimo-jta_1.0.1B_spec.version>
+        <geronimo-annotation_1.0_spec.version>1.0</geronimo-annotation_1.0_spec.version>
+        <geronimo-interceptor_3.0_spec.version>1.0.1</geronimo-interceptor_3.0_spec.version>
+
+        <!-- Utitlites -->
+        <log4j.version>1.2.14</log4j.version>
+        <dozer.version>5.1</dozer.version>
+        <slf4j.version>1.5.8</slf4j.version>
+        <csvreader.version>2.0</csvreader.version>
+
+        <!-- SWING -->
+        <swing-layout.version>1.0.3</swing-layout.version>
+        <bsaf.version>1.9</bsaf.version>
+        <binding.version>2.0.6</binding.version>
+        <swingx.version>1.6.2-2</swingx.version>
+        
+        <!--  Look and Feel -->
+        <budget.lf.version>1.0</budget.lf.version>
+
+        <!-- Maven Plugins -->
+        <maven.ear.plugin.version>2.4.2</maven.ear.plugin.version>
+        <maven-surefire-plugin.version>2.4.3</maven-surefire-plugin.version>
+        <maven-eclipse-plugin.version>2.7</maven-eclipse-plugin.version>
+        <maven-compiler-plugin.version>2.0.2</maven-compiler-plugin.version>
+        <maven-surefire-report-plugin.version>2.4.3</maven-surefire-report-plugin.version>
+        <maven-resources-plugin.version>2.4</maven-resources-plugin.version>
+        <maven-emma-plugin.version>1.0-alpha-2</maven-emma-plugin.version>
+        <maven-release-plugin.version>2.0-beta-8</maven-release-plugin.version>
+        <ftp-wagon.version>1.0-alpha-6</ftp-wagon.version>
+
+        <!-- commons -->
+        <commons-lang.version>2.4</commons-lang.version>
+
+
+
+    </properties>
+
+</project>

@@ -1,0 +1,14 @@
+SETUP
+* Jira
+
+OPTIONAL
+* transfer dialog
+* taskbar: progress bar / busy icon
+* import dialog: fileName restoren
+* Dialoge: sizes restoren
+* Importierte TX: Validierung in Tabelle farbig markieren
+* constraintViolationException: anzeigen fuer ErrorDialog verbessern...
+* tables: linksbündige spalten: werden erst linksbündign beim klicken?
+ 
+
+

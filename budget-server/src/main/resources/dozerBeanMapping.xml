@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozer.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://dozer.sourceforge.net
+          http://dozer.sourceforge.net/schema/beanmapping.xsd">
+
+
+	<!--  Dont map the childAccounts -->
+	<mapping>
+		<class-a>ch.tkayser.budget.dto.AccountDTO</class-a>
+		<class-b>ch.tkayser.budget.domain.Account</class-b>
+		<field>
+			<a set-method="setParentForDozer">parent</a>
+			<b set-method="setParentForDozer">parent</b>
+		</field>
+		
+	</mapping>
+
+</mappings>
