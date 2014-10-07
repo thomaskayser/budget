@@ -1,4 +1,14 @@
 #java specific
 *.class
 
-/target/
+# eclipse files
+.project
+.classpath
+.settings/
+test-output/
+
+# Mac Files
+.DS_Store
+
+# Maven Target folders
+target/
