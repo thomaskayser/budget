@@ -7,7 +7,11 @@
         <maven>2.0.7</maven>
     </prerequisites>
 
+
+    <groupId>ch.tkayser.budget</groupId>
+    <artifactId>budget-pom</artifactId>
     <name>budget-pom</name>
+    <version>2.0.1-SNAPSHOT</version>
     <description>Budget Application</description>
 
     <repositories>
@@ -41,9 +45,6 @@
         <!-- don't build client with maven... <module>budget-client</module> -->
     </modules>
 
-    <groupId>ch.tkayser.budget</groupId>
-    <artifactId>budget</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 

@@ -6,20 +6,6 @@
     </prerequisites>
 
 
-    <repositories>
-        <repository>
-            <id>glassfish</id>
-            <name>glassfish</name>
-            <layout>default</layout>
-            <url>http://maven.glassfish.org/content/groups/glassfish</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
-
-
     <modelVersion>4.0.0</modelVersion>
     <groupId>ch.tkayser.budget</groupId>
     <artifactId>budget-swing</artifactId>
