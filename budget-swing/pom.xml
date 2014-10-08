@@ -7,9 +7,7 @@
 
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ch.tkayser.budget</groupId>
     <artifactId>budget-swing</artifactId>
-    <version>2.0.1-SNAPSHOT</version>
     <parent>
         <groupId>ch.tkayser.budget</groupId>
         <artifactId>budget-pom</artifactId>
