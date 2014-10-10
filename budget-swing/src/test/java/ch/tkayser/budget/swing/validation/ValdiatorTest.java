@@ -38,7 +38,6 @@ public class ValdiatorTest extends SwingBaseTest {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
     
-    @Test
     public void testValidation() {
         BudgetDTO budget =new BudgetDTO();
         Set<ConstraintViolation<BudgetDTO>> violations = validator.validate(budget);

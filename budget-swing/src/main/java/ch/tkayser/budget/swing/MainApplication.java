@@ -17,9 +17,12 @@ import javax.swing.UIManager;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.SingleFrameApplication;
 
+import com.sun.appserv.security.ProgrammaticLogin;
+
 import ch.tkayser.budget.exception.BudgetException;
 import ch.tkayser.budget.service.BudgetService;
 import ch.tkayser.budget.swing.prefs.GUIPreferences;
+import ch.tkayser.budget.swing.service.ServiceLocator;
 import ch.tkayser.budget.util.BudgetMockService;
 
 /**
@@ -50,6 +53,10 @@ public class MainApplication extends SingleFrameApplication {
         if (System.getProperty(Constants.PROP_USE_MOCK_SERVICE) != null) {
             service = new BudgetMockService();            
         }
+        
+
+        service = ServiceLocator.getService();
+        
         launch(MainApplication.class, args);
     }
 

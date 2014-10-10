@@ -16,10 +16,10 @@
 
     <repositories>
         <repository>
-            <id> glassfish </id>
-            <name>glassfish</name>
+            <id> mvnrepository </id>
+            <name>mvnrepository</name>
             <layout>default</layout>
-            <url>http://maven.glassfish.org/content/groups/glassfish</url>
+            <url>http://mvnrepository.com</url>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
