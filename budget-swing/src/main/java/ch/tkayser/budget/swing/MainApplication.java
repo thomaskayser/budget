@@ -9,19 +9,12 @@
  */
 package ch.tkayser.budget.swing;
 
-import javax.ejb.EJB;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-
 import org.jdesktop.application.Application;
 import org.jdesktop.application.SingleFrameApplication;
 
-import com.sun.appserv.security.ProgrammaticLogin;
-
 import ch.tkayser.budget.exception.BudgetException;
 import ch.tkayser.budget.service.BudgetService;
-import ch.tkayser.budget.swing.prefs.GUIPreferences;
+import ch.tkayser.budget.swing.common.LoginDialog;
 import ch.tkayser.budget.swing.service.ServiceLocator;
 import ch.tkayser.budget.util.BudgetMockService;
 
@@ -31,8 +24,7 @@ import ch.tkayser.budget.util.BudgetMockService;
  */
 public class MainApplication extends SingleFrameApplication {
 
-    @EJB
-    private static BudgetService service;
+    private static BudgetService mockService = new BudgetMockService();
 
     /**
      * convenience Method to get the MainApplication instance
@@ -40,24 +32,22 @@ public class MainApplication extends SingleFrameApplication {
     public static MainApplication getMainApplication() {
         return Application.getInstance(MainApplication.class);
     }
-    
+
     /**
      * @return the service
      */
     public static BudgetService getService() {
-        return service;
-    }
-    
-    public static void main(String[] args) throws BudgetException {
         // mock services
         if (System.getProperty(Constants.PROP_USE_MOCK_SERVICE) != null) {
-            service = new BudgetMockService();            
+            return mockService;
         }
-        
+        return ServiceLocator.getService();
+    }
 
-        service = ServiceLocator.getService();
-        
+    public static void main(String[] args) throws BudgetException {
+
         launch(MainApplication.class, args);
+
     }
 
     /*
@@ -67,16 +57,21 @@ public class MainApplication extends SingleFrameApplication {
      */
     @Override
     protected void startup() {
+
+        new LoginDialog(MainApplication.getMainApplication().getMainFrame()).doLogin();
+
         MainPresenter presenter = new MainPresenter();
         MainView mainView = new MainView(this, presenter);
-//        // set Look and Feel
-//        try {
-//            GUIPreferences.getInstance();
-//            UIManager.setLookAndFeel(GUIPreferences.getInstance().getLookAndFeelName());
-//            SwingUtilities.updateComponentTreeUI(mainView.getFrame());
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(mainView.getFrame(), "Error loading prefs: "+e.getMessage());
-//        }
+
+        // // set Look and Feel
+        // try {
+        // GUIPreferences.getInstance();
+        // UIManager.setLookAndFeel(GUIPreferences.getInstance().getLookAndFeelName());
+        // SwingUtilities.updateComponentTreeUI(mainView.getFrame());
+        // } catch (Exception e) {
+        // JOptionPane.showMessageDialog(mainView.getFrame(),
+        // "Error loading prefs: "+e.getMessage());
+        // }
         show(mainView);
     }
 }

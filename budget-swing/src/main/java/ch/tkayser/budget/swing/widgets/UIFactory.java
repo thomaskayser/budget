@@ -16,12 +16,13 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.swing.ComboBoxModel;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFormattedTextField.AbstractFormatterFactory;
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -90,18 +91,19 @@ public class UIFactory {
      * @param valueModel
      * @return
      */
-    public static JFormattedTextField createBigDecimalEditField(ValueModel model, String attributeName, BudgetValidator<?> validator) {
+    public static JFormattedTextField createBigDecimalEditField(ValueModel model, String attributeName,
+            BudgetValidator<?> validator) {
         return createBigDecimalEditField(model, attributeName, validator, NO_PREFERRED_SIZE);
     }
-    
+
     /**
      * create a Textfield for Numbers
      * 
      * @param valueModel
      * @return
      */
-    public static JFormattedTextField createBigDecimalEditField(ValueModel model, String attributeName, BudgetValidator<?> validator,
-            int preferredWidth) {
+    public static JFormattedTextField createBigDecimalEditField(ValueModel model, String attributeName,
+            BudgetValidator<?> validator, int preferredWidth) {
         return createBigDecimalEditField(model, attributeName, validator, preferredWidth, JTextField.RIGHT);
     }
 
@@ -111,8 +113,8 @@ public class UIFactory {
      * @param valueModel
      * @return
      */
-    public static JFormattedTextField createBigDecimalEditField(ValueModel model, String attributeName, BudgetValidator<?> validator,
-            int preferredWidth, int alignment) {
+    public static JFormattedTextField createBigDecimalEditField(ValueModel model, String attributeName,
+            BudgetValidator<?> validator, int preferredWidth, int alignment) {
         return createFormattedTextField(model, attributeName, validator, preferredWidth, alignment, true,
                 BudgetFormats.getBigDecimalFormatterFactory());
     }
@@ -150,6 +152,7 @@ public class UIFactory {
 
     /**
      * Checkbox erstellen
+     * 
      * @return
      */
     public static JCheckBox createCheckBox(String cbName) {
@@ -166,8 +169,8 @@ public class UIFactory {
      * @param preferredWidth
      * @return
      */
-    public static JComboBox createComboBox(PresentationModel<?> valueHolderModel, String attributeName, BudgetValidator<?> validator,
-            SelectionInList<?> selection, ListCellRenderer renderer) {
+    public static JComboBox createComboBox(PresentationModel<?> valueHolderModel, String attributeName,
+            BudgetValidator<?> validator, SelectionInList<?> selection, ListCellRenderer renderer) {
         return createComboBox(valueHolderModel, attributeName, validator, selection, renderer, NO_PREFERRED_SIZE);
     }
 
@@ -179,8 +182,8 @@ public class UIFactory {
      * @param preferredWidth
      * @return
      */
-    public static JComboBox createComboBox(PresentationModel<?> valueHolderModel, String attributeName, BudgetValidator<?> validator,
-            SelectionInList<?> selection, ListCellRenderer renderer, int preferredWidth) {
+    public static JComboBox createComboBox(PresentationModel<?> valueHolderModel, String attributeName,
+            BudgetValidator<?> validator, SelectionInList<?> selection, ListCellRenderer renderer, int preferredWidth) {
         // ComboBox erstellen
         JComboBox cb = BasicComponentFactory.createComboBox(selection, renderer);
 
@@ -198,7 +201,8 @@ public class UIFactory {
             // valueHolder auf selection setzen
             finalSelection.setSelectionHolder(valueHolderModel.getModel(attributeName));
 
-            // listener auf valueHolder Model, damit bei aenderungen des beans im PresentationModel der ValueHolder der Selection angepasst
+            // listener auf valueHolder Model, damit bei aenderungen des beans
+            // im PresentationModel der ValueHolder der Selection angepasst
             // werden kann
             valueHolderModel.addPropertyChangeListener(new PropertyChangeListener() {
                 @Override
@@ -270,7 +274,8 @@ public class UIFactory {
      * @param valueModel
      * @return
      */
-    public static JFormattedTextField createDateEditField(ValueModel model, String attributeName, BudgetValidator<?> validator) {
+    public static JFormattedTextField createDateEditField(ValueModel model, String attributeName,
+            BudgetValidator<?> validator) {
         return createDateEditField(model, attributeName, validator, NO_PREFERRED_SIZE);
     }
 
@@ -280,8 +285,8 @@ public class UIFactory {
      * @param valueModel
      * @return
      */
-    public static JFormattedTextField createDateEditField(ValueModel model, String attributeName, BudgetValidator<?> validator,
-            int preferredWidth) {
+    public static JFormattedTextField createDateEditField(ValueModel model, String attributeName,
+            BudgetValidator<?> validator, int preferredWidth) {
         return createFormattedTextField(model, attributeName, validator, preferredWidth, JTextField.LEFT, true,
                 BudgetFormats.getDateFormatterFactory());
     }
@@ -308,8 +313,9 @@ public class UIFactory {
      * @param budgetFormater
      * @return
      */
-    public static JFormattedTextField createFormattedTextField(ValueModel model, String attributeName, BudgetValidator<?> validator,
-            int preferredWidth, int alignment, boolean enabled, AbstractFormatterFactory formatterFactory) {
+    public static JFormattedTextField createFormattedTextField(ValueModel model, String attributeName,
+            BudgetValidator<?> validator, int preferredWidth, int alignment, boolean enabled,
+            AbstractFormatterFactory formatterFactory) {
 
         // FormattedTextField fuer das Modell erstellen
         final JFormattedTextField field = BasicComponentFactory.createFormattedTextField(model, formatterFactory);
@@ -386,14 +392,14 @@ public class UIFactory {
     public static JXTreeTable createJTreeTable(TreeTableModel model) {
         // JTree erstellen
         JXTreeTable treeTable = new JXTreeTable(model);
-        
+
         // layout
         treeTable.setShowHorizontalLines(true);
         treeTable.setShowVerticalLines(true);
-        
+
         // default renderers setzen
         setDefaultTableRenderer(treeTable);
-        
+
         return treeTable;
     }
 
@@ -466,7 +472,8 @@ public class UIFactory {
      * @param valueModel
      * @return
      */
-    public static JTextField createTextEditField(ValueModel valueModel, String attributeName, BudgetValidator<?> validator) {
+    public static JTextField createTextEditField(ValueModel valueModel, String attributeName,
+            BudgetValidator<?> validator) {
         return createTextEditField(valueModel, attributeName, validator, NO_PREFERRED_SIZE);
     }
 
@@ -476,8 +483,8 @@ public class UIFactory {
      * @param valueModel
      * @return
      */
-    public static JTextField createTextEditField(ValueModel valueModel, String attributeName, BudgetValidator<?> validator,
-            int preferredWidth) {
+    public static JTextField createTextEditField(ValueModel valueModel, String attributeName,
+            BudgetValidator<?> validator, int preferredWidth) {
         return createTextField(valueModel, attributeName, validator, preferredWidth, JTextField.LEFT, true);
     }
 
@@ -505,8 +512,8 @@ public class UIFactory {
      * @param left
      * @return
      */
-    private static JTextField createTextField(ValueModel valueModel, String attributeName, BudgetValidator<?> validator,
-            int preferredWidth, int alignment, boolean enabled) {
+    private static JTextField createTextField(ValueModel valueModel, String attributeName,
+            BudgetValidator<?> validator, int preferredWidth, int alignment, boolean enabled) {
         // JTextField erstellens
         JTextField field = BasicComponentFactory.createTextField(valueModel);
         field.setEnabled(enabled);
@@ -517,7 +524,7 @@ public class UIFactory {
         // Validierungslistener und decorator fuers format nur wenn das Feld
         // editierbar ist
         // und ein validator da ist
-        if (validator != null || enabled == true) {
+        if (validator != null && enabled == true) {
             // attribute name in client properties stellen
             field.putClientProperty(CLIENT_PROPERTY_ATTRIBUT_NAME, attributeName);
             // decorator
@@ -527,13 +534,54 @@ public class UIFactory {
         return field;
     }
 
-    /** 
+    /**
+     * create a Textfield for texts
+     * 
+     * @param valueModel
+     * @return
+     */
+    public static JPasswordField createPasswordEditField(ValueModel valueModel, String attributeName,
+            BudgetValidator<?> validator, int preferredWith) {
+        return createPasswordField(valueModel, attributeName, validator, preferredWith, JTextField.LEFT, true);
+    }
+
+    /**
+     * @param valueModel
+     * @param attributeName
+     * @param preferredSize
+     * @param left
+     * @return
+     */
+    private static JPasswordField createPasswordField(ValueModel valueModel, String attributeName,
+            BudgetValidator<?> validator, int preferredWidth, int alignment, boolean enabled) {
+        // JTextField erstellens
+        JPasswordField field = BasicComponentFactory.createPasswordField(valueModel);
+        field.setEnabled(enabled);
+
+        // groesse setzen
+        setSizeAndAlignment(field, preferredWidth, DEFAULT_HEIGHT, alignment);
+
+        // Validierungslistener und decorator fuers format nur wenn das Feld
+        // editierbar ist
+        // und ein validator da ist
+        if (validator != null && enabled == true) {
+            // attribute name in client properties stellen
+            field.putClientProperty(CLIENT_PROPERTY_ATTRIBUT_NAME, attributeName);
+            // decorator
+            new ValidationDecoration(field, validator);
+        }
+
+        return field;
+    }
+
+    /**
      * Default CellRenderers erstellen
      *
      * @param table
      */
     private static void setDefaultTableRenderer(JTable table) {
-        table.setDefaultRenderer(BigDecimal.class, new FormatedTableCellRenderer(BudgetFormats.BIGDECIMAL_DISPLAY_FORMAT, true));
+        table.setDefaultRenderer(BigDecimal.class, new FormatedTableCellRenderer(
+                BudgetFormats.BIGDECIMAL_DISPLAY_FORMAT, true));
         table.setDefaultRenderer(Date.class, new FormatedTableCellRenderer(BudgetFormats.DATE_FORMAT));
 
     }
