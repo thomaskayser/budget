@@ -18,7 +18,7 @@
 
 	<name>budget-swing</name>
 	<description>Budget Swing client</description>
-	<packaging>ejb</packaging>
+	<packaging>jar</packaging>
 
 	<dependencies>
 
@@ -80,8 +80,8 @@
 			<groupId>ch.tkayser.budget</groupId>
 			<artifactId>lf</artifactId>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>org.glassfish.main.appclient.client</groupId>
 			<artifactId>gf-client-module</artifactId>
@@ -95,19 +95,24 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
+
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-ejb-plugin</artifactId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
 				<configuration>
-					<ejbVersion>3.0</ejbVersion>
-					<archive>
-						<manifest>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-							<mainClass>ch.tkayser.budget.swing.MainApplication</mainClass>
-							<addClasspath>true</addClasspath>
-						</manifest>
-					</archive>
+					<descriptors>
+						<descriptor>src/assembly/client_bin_assembly.xml</descriptor>
+					</descriptors>
 				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 		</plugins>

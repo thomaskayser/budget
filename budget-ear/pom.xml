@@ -49,17 +49,8 @@
 			<version>${project.version}</version>
 			<type>ejb</type>
 		</dependency>
-		<dependency>
-			<groupId>ch.tkayser.budget</groupId>
-			<artifactId>budget-swing</artifactId>
-			<version>${project.version}</version>
-			<type>jar</type>
-		</dependency>
-
 
 	</dependencies>
-
-
 
 
 </project>
