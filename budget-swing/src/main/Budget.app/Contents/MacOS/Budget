@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export BUDGET_HOME=/Users/Tom/Documents/budget
+cd $BUDGET_HOME/bin
+java -cp $BUDGET_HOME/lib/*:$BUDGET_HOME/config/. ch.tkayser.budget.swing.MainApplication

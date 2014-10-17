@@ -20,12 +20,17 @@
       <directoryMode>755</directoryMode>
     </fileSet>
     <fileSet>
-      <!-- leeres Verzeichnis fuer die Logfiles -->
       <directory>src/main/config</directory>
       <outputDirectory>/config</outputDirectory>
       <fileMode>755</fileMode>
       <directoryMode>755</directoryMode>
     </fileSet>  
+    <fileSet>
+      <directory>src/main/Budget.app</directory>
+      <outputDirectory>/Budget.app</outputDirectory>
+      <fileMode>755</fileMode>
+      <directoryMode>755</directoryMode>
+    </fileSet>    
   </fileSets>
   
   <files>
