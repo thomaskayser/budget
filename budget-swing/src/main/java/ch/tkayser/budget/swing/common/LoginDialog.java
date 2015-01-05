@@ -74,7 +74,7 @@ public class LoginDialog extends JDialog {
             ServiceLocator.init(editModel.getBean());
         } catch (Exception ex) {
             ExceptionDialog.showDialg(translateKey(Constants.ERROR_LOGON), ex);
-            return;
+            System.exit(0);
         }
         setVisible(false);
     }
