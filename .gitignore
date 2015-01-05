@@ -1,3 +1,21 @@
+#java specific
+*.class
+
+# eclipse files
+.project
+.classpath
+.settings/
+test-output/
+
+#InetliJ
 *.iml
 .idea/
 out/
+
+
+# Mac Files
+.DS_Store
+
+# Maven Target folders
+target/
+
