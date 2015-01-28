@@ -125,7 +125,9 @@ public class AccountDTO extends BaseDTO {
      * @param children the children to set
      */
     public void setChildren(List<AccountDTO> children) {
+        List<AccountDTO> oldChildren = this.children;
         this.children = children;
+        firePropertyChange(PROP_CHILDREN, oldChildren, this.children);
     }
 
     /**
@@ -191,7 +193,7 @@ public class AccountDTO extends BaseDTO {
         out.append(": ");
         out.append(getName());
         if (getParent() != null) {
-            out.append(" [" + getParent().getName() + "]");
+            out.append(" [").append(getParent().getName()).append("]");
         }
         return out.toString();
 
