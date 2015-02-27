@@ -13,10 +13,7 @@ package ch.tkayser.budget.parser;
 import java.util.ArrayList;
 import java.util.List;
 
-import ch.tkayser.budget.parser.impl.UBSParserV1;
-import ch.tkayser.budget.parser.impl.UBSParserV2;
-import ch.tkayser.budget.parser.impl.UBSParserV3;
-import ch.tkayser.budget.parser.impl.UBSParserV4;
+import ch.tkayser.budget.parser.impl.*;
 import ch.tkayser.budget.parser.impl.mt940.BankCoopParser;
 
 
@@ -29,6 +26,7 @@ public class ParserFactory {
     static {
 	m_parsers = new ArrayList<TransactionParser>();
         m_parsers.add(new BankCoopParser());
+        m_parsers.add(new VisecaCCParser());
         m_parsers.add(new UBSParserV4());
         m_parsers.add(new UBSParserV3());
         m_parsers.add(new UBSParserV2());
