@@ -10,11 +10,11 @@ import org.slf4j.LoggerFactory;
 public class ServiceWatchdog {
 
     private Thread checkServerThread;
-    private static final int pollIntervall = 60*1000;
+    private static final int pollIntervall = 60 * 1000;
 
     private Logger logger = LoggerFactory.getLogger("Watchdog");
 
-    public ServiceWatchdog(final BudgetService service){
+    public ServiceWatchdog(final BudgetService service) {
         checkServerThread = new Thread(new Runnable() {
             @Override
             public void run() {
