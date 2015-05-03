@@ -9,6 +9,7 @@
  */
 package ch.tkayser.budget.swing;
 
+import ch.tkayser.budget.swing.service.ServiceWatchdog;
 import org.jdesktop.application.Application;
 import org.jdesktop.application.SingleFrameApplication;
 
@@ -73,5 +74,9 @@ public class MainApplication extends SingleFrameApplication {
         // "Error loading prefs: "+e.getMessage());
         // }
         show(mainView);
+
+        // start watchdog in batchground
+        new ServiceWatchdog(getService());
+
     }
 }
