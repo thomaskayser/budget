@@ -39,10 +39,10 @@
         references ACCOUNT;
 
         
-  create index act_parent_fk_i on account (act_parent_fk)
+  create index act_parent_fk_i on account (act_parent_fk);
   
         
-  create index trx_act_fk_i on transaction (TRX_ACT_ID)
+  create index trx_act_fk_i on transaction (TRX_ACT_ID);
   
 
 
