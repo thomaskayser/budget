@@ -102,6 +102,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 			</plugin>
 
+            <!-- build mac zip -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.4.1</version>
@@ -109,7 +110,7 @@
 					<descriptors>
 						<descriptor>src/assembly/mac_client_bin_assembly.xml</descriptor>
 					</descriptors>
-					<finalName>budget</finalName>
+					<finalName>budget-mac</finalName>
                		<appendAssemblyId>false</appendAssemblyId>					
 				</configuration>
 				<executions>
@@ -122,7 +123,28 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+            <!-- build win zip -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/assembly/win_client_bin_assembly.xml</descriptor>
+					</descriptors>
+					<finalName>budget-win</finalName>
+               		<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
