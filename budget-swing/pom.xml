@@ -107,7 +107,7 @@
 				<version>2.4.1</version>
 				<configuration>
 					<descriptors>
-						<descriptor>src/assembly/client_bin_assembly.xml</descriptor>
+						<descriptor>src/assembly/mac_client_bin_assembly.xml</descriptor>
 					</descriptors>
 					<finalName>budget</finalName>
                		<appendAssemblyId>false</appendAssemblyId>					
